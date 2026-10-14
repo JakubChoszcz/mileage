@@ -1,1 +1,1 @@
-npx biome check --staged --write
+npm run test
