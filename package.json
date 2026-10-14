@@ -12,7 +12,8 @@
     "preview": "vite preview",
     "format": "biome format",
     "lint": "biome lint",
-    "check": "biome check"
+    "check": "biome check",
+    "prepare": "husky"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.18",
@@ -32,6 +33,7 @@
     "@types/react": "^19.2.0",
     "@types/react-dom": "^19.2.0",
     "@vitejs/plugin-react": "^6.0.1",
+    "husky": "^9.1.7",
     "typescript": "^6.0.2",
     "vite": "^8.0.0"
   },
