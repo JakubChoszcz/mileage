@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-# mileage
-# mileage
-=======
 # Mileage
 
 Personal running dashboard: weekly mileage, training types, run details and
@@ -54,4 +50,3 @@ npm run check          # lint and format check
 - [SPEC.md](SPEC.md) — product spec: business rules, training-type
   classification, filters and reports (in Polish)
 - [PLAN.md](PLAN.md) — architecture decisions and roadmap (in Polish)
->>>>>>> c7caac9 (feat: add readme, plan, spec)
