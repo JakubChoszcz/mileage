@@ -101,7 +101,6 @@
       "name": "Krótki rozruch"
     }
   ],
-  "settings": [],
   "shoes": [
     {
       "id": "1",
@@ -119,5 +118,6 @@
       "limitMeters": 100000,
       "isRetired": false
     }
-  ]
+  ],
+  "settings": []
 }

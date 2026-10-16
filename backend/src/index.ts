@@ -1,17 +1,34 @@
 import { serve } from "@hono/node-server";
-import { Hono } from "hono";
 import { getRun, getRuns, getShoes } from "./data.js";
+import { createRoute, OpenAPIHono } from "@hono/zod-openapi";
+import { GetRunsQuerySchema, RunsSchema, ShoesSchema } from "./schemas.js";
 
-const app = new Hono();
+const app = new OpenAPIHono();
 
-const data = getRuns();
+const runsRoute = createRoute({
+  method: "get",
+  path: "/runs",
+  request: {
+    query: GetRunsQuerySchema,
+  },
+  responses: {
+    200: {
+      content: {
+        "application/json": {
+          schema: RunsSchema,
+        },
+      },
+      description: "Retrieve the runs",
+    },
+  },
+});
 
-app.get("/runs", (c) => {
-  const { from, to } = c.req.query();
+app.openapi(runsRoute, (c) => {
+  const { from, to } = c.req.valid("query");
 
   const runs = getRuns({ from, to });
 
-  return c.json(runs);
+  return c.json(runs, 200);
 });
 
 app.get("/runs/:id", (c) => {
@@ -20,19 +37,44 @@ app.get("/runs/:id", (c) => {
   const run = getRun(id);
 
   if (!run) {
-    c.status(404);
-    return c.json({
-      error: { code: "NOT_FOUND", message: "Nie znaleziono biegu" },
-    });
+    return c.json(
+      {
+        error: { code: "NOT_FOUND", message: "Nie znaleziono biegu" },
+      },
+      404,
+    );
   }
 
   return c.json(run);
 });
 
-app.get("/shoes", (c) => {
+const shoesRoute = createRoute({
+  method: "get",
+  path: "/shoes",
+  responses: {
+    200: {
+      content: {
+        "application/json": {
+          schema: ShoesSchema,
+        },
+      },
+      description: "Retrieve the shoes",
+    },
+  },
+});
+
+app.openapi(shoesRoute, (c) => {
   const shoes = getShoes();
 
-  return c.json(shoes);
+  return c.json(shoes, 200);
+});
+
+app.doc("/doc", {
+  openapi: "3.0.0",
+  info: {
+    version: "1.0.0",
+    title: "Kilometrownik API",
+  },
 });
 
 serve(
