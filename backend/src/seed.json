@@ -1,0 +1,123 @@
+{
+  "runs": [
+    {
+      "id": "2",
+      "startedAt": "2026-10-13T07:10:00",
+      "distanceMeters": 8000,
+      "durationSeconds": 2760,
+      "elevationGainMeters": 35,
+      "avgHeartRate": 143,
+      "shoeId": "1",
+      "name": "Poranny easy"
+    },
+    {
+      "id": "1",
+      "startedAt": "2026-10-15T21:57:03",
+      "distanceMeters": 12345,
+      "durationSeconds": 3000,
+      "elevationGainMeters": 88,
+      "avgHeartRate": 156,
+      "shoeId": "2",
+      "name": null
+    },
+    {
+      "id": "3",
+      "startedAt": "2026-10-11T08:30:00",
+      "distanceMeters": 21000,
+      "durationSeconds": 7560,
+      "elevationGainMeters": 140,
+      "avgHeartRate": 148,
+      "shoeId": null,
+      "name": "Długie wybieganie"
+    },
+    {
+      "id": "4",
+      "startedAt": "2026-10-09T18:15:00",
+      "distanceMeters": 6000,
+      "durationSeconds": 2400,
+      "elevationGainMeters": 12,
+      "avgHeartRate": 131,
+      "shoeId": "1",
+      "name": null
+    },
+    {
+      "id": "5",
+      "startedAt": "2026-10-07T17:45:00",
+      "distanceMeters": 10000,
+      "durationSeconds": 2760,
+      "elevationGainMeters": 40,
+      "avgHeartRate": 165,
+      "shoeId": null,
+      "name": "Tempo na Polu Mokotowskim"
+    },
+    {
+      "id": "6",
+      "startedAt": "2026-10-03T09:00:00",
+      "distanceMeters": 5000,
+      "durationSeconds": 1290,
+      "elevationGainMeters": 8,
+      "avgHeartRate": 172,
+      "shoeId": "2",
+      "name": "Parkrun Pole Mokotowskie"
+    },
+    {
+      "id": "7",
+      "startedAt": "2026-09-30T23:30:00",
+      "distanceMeters": 7000,
+      "durationSeconds": 2520,
+      "elevationGainMeters": null,
+      "avgHeartRate": null,
+      "shoeId": "1",
+      "name": null
+    },
+    {
+      "id": "8",
+      "startedAt": "2026-09-26T07:00:00",
+      "distanceMeters": 15000,
+      "durationSeconds": 5100,
+      "elevationGainMeters": 90,
+      "avgHeartRate": 146,
+      "shoeId": "2",
+      "name": "Sobotnie wybieganie"
+    },
+    {
+      "id": "9",
+      "startedAt": "2026-09-21T06:20:00",
+      "distanceMeters": 9000,
+      "durationSeconds": 3150,
+      "elevationGainMeters": 50,
+      "avgHeartRate": 140,
+      "shoeId": "2",
+      "name": null
+    },
+    {
+      "id": "10",
+      "startedAt": "2026-09-18T12:30:00",
+      "distanceMeters": 3200,
+      "durationSeconds": 1120,
+      "elevationGainMeters": null,
+      "avgHeartRate": 138,
+      "shoeId": null,
+      "name": "Krótki rozruch"
+    }
+  ],
+  "settings": [],
+  "shoes": [
+    {
+      "id": "1",
+      "name": "Błyskawica",
+      "brand": "Nike",
+      "model": "Pegasus 41",
+      "limitMeters": 700000,
+      "isRetired": false
+    },
+    {
+      "id": "2",
+      "name": "Szybka Ania",
+      "brand": "Adidas",
+      "model": "Adizero Boston 12",
+      "limitMeters": 100000,
+      "isRetired": false
+    }
+  ]
+}
