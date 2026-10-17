@@ -11,8 +11,15 @@ import {
   ShoeSchema,
   ShoesSchema,
 } from "./schemas.js";
+import { cors } from "hono/cors";
 
 const app = new OpenAPIHono();
+
+app.use(
+  cors({
+    origin: "*",
+  }),
+);
 
 const runsRoute = createRoute({
   method: "get",
