@@ -97,6 +97,9 @@ export const ShoeSchema = z
     isRetired: z.boolean().openapi({
       example: false,
     }),
+    mileageMeters: z.number().openapi({
+      example: 1012000,
+    }),
   })
   .openapi("Shoe");
 

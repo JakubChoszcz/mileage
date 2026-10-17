@@ -130,7 +130,7 @@ const shoeRoute = createRoute({
 
 app.openapi(shoeRoute, (c) => {
   const { id } = c.req.valid("param");
-  const shoe = getShoe({ id });
+  const shoe = getShoe(id);
 
   if (!shoe) {
     return c.json(
