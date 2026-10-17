@@ -1,6 +1,6 @@
 import { serve } from "@hono/node-server";
 import { Hono } from "hono";
-import { getRun, getRuns, getShoes } from "./data.js";
+import { getRun, getRuns, getShoe, getShoes } from "./data.js";
 
 const app = new Hono();
 
@@ -11,7 +11,7 @@ app.get("/runs", (c) => {
 
   const runs = getRuns({ from, to });
 
-  return c.json(runs);
+  return c.json(runs, 200);
 });
 
 app.get("/runs/:id", (c) => {
@@ -20,10 +20,12 @@ app.get("/runs/:id", (c) => {
   const run = getRun(id);
 
   if (!run) {
-    c.status(404);
-    return c.json({
-      error: { code: "NOT_FOUND", message: "Nie znaleziono biegu" },
-    });
+    return c.json(
+      {
+        error: { code: "NOT_FOUND", message: "Nie znaleziono biegu" },
+      },
+      404,
+    );
   }
 
   return c.json(run);
@@ -32,7 +34,21 @@ app.get("/runs/:id", (c) => {
 app.get("/shoes", (c) => {
   const shoes = getShoes();
 
-  return c.json(shoes);
+  return c.json(shoes, 200);
+});
+
+app.get("/shoes/:id", (c) => {
+  const id = c.req.param("id");
+  const shoe = getShoe({ id });
+
+  if (!shoe) {
+    return c.json(
+      { error: { code: "NOT_FOUND", message: "Nie znaleziono butów" } },
+      404,
+    );
+  }
+
+  return c.json(shoe, 200);
 });
 
 serve(

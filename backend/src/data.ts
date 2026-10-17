@@ -35,6 +35,14 @@ export function getShoes() {
   return shoes;
 }
 
-export function getShoe() {
-  return "getShoes";
+export function getShoe({ id }: { id: string }) {
+  let shoe = data.shoes.find((e) => e.id === id);
+
+  if (!shoe) return null;
+
+  const mileageMeters = data.runs
+    .filter((e) => e.shoeId === id)
+    .reduce((prev, acc) => prev + acc.distanceMeters, 0);
+
+  return { ...shoe, mileageMeters };
 }
