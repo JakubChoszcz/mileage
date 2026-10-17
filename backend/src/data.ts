@@ -35,7 +35,7 @@ export function getShoes() {
   return shoes;
 }
 
-export function getShoe({ id }: { id: string }) {
+export function getShoe(id: string) {
   let shoe = data.shoes.find((e) => e.id === id);
 
   if (!shoe) return null;
