@@ -18,3 +18,13 @@ export function getAveragePace(
 
   return durationSeconds / (distanceMeters / 1000);
 }
+
+export function getTotalDistance(
+  runs: {
+    distanceMeters: number;
+  }[],
+): number {
+  const totalDistance = runs.reduce((sum, run) => sum + run.distanceMeters, 0);
+
+  return totalDistance;
+}
