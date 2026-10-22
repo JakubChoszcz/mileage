@@ -28,3 +28,16 @@ export function getTotalDistance(
 
   return totalDistance;
 }
+
+export function getLongestRun<T extends { distanceMeters: number }>(
+  runs: T[],
+): T | null {
+  let longestRun: T | null = null;
+
+  for (const run of runs) {
+    if (longestRun === null || run.distanceMeters >= longestRun.distanceMeters)
+      longestRun = run;
+  }
+
+  return longestRun;
+}

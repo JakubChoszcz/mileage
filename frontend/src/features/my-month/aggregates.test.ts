@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { getAveragePace, getTotalDistance } from "./aggregates";
+import { getAveragePace, getLongestRun, getTotalDistance } from "./aggregates";
 
 describe("getAveragePace", () => {
   test("returns total average pace from runs", () =>
@@ -73,5 +73,27 @@ describe("getTotalDistance", () => {
         },
       ]),
     ).toBe(9500);
+  });
+});
+
+describe("getLongestRun", () => {
+  test("returns the longest run from an array of runs", () => {
+    expect(
+      getLongestRun([
+        { distanceMeters: 100 },
+        { distanceMeters: 20000 },
+        { distanceMeters: 3000 },
+      ]),
+    ).toEqual({ distanceMeters: 20000 });
+  });
+
+  test("return null when array is empty", () => {
+    expect(getLongestRun([])).toBe(null);
+  });
+
+  test("return the longest run when there are two runs with the same distanceMeters", () => {
+    expect(
+      getLongestRun([{ distanceMeters: 5000 }, { distanceMeters: 5000 }]),
+    ).toEqual({ distanceMeters: 5000 });
   });
 });
