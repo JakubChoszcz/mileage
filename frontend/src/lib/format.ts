@@ -1,3 +1,8 @@
+const numberFormat = new Intl.NumberFormat("pl-PL", {
+  minimumFractionDigits: 1,
+  maximumFractionDigits: 1,
+});
+
 export function formatPace(seconds: number | null): string | null {
   if (seconds === null || seconds < 0) return null;
 
@@ -22,8 +27,12 @@ export function formatDuration(seconds: number | null): string | null {
   return `${h > 0 ? `${h}:` : ""}${h > 0 ? mm.toString().padStart(2, "0") : mm}:${ss.toString().padStart(2, "0")}`;
 }
 
-console.log(formatDuration(7200));
-console.log(formatDuration(5200));
-console.log(formatDuration(300));
-console.log(formatDuration(100));
-console.log(formatDuration(34));
+export function formatDistance(meters: number): string {
+  return numberFormat.format(meters / 1000);
+}
+
+console.log(formatDistance(7200));
+console.log(formatDistance(5200));
+console.log(formatDistance(300));
+console.log(formatDistance(100));
+console.log(formatDistance(34));

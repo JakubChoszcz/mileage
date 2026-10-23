@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { formatDuration, formatPace } from "./format";
+import { formatDistance, formatDuration, formatPace } from "./format";
 
 describe("formatPace", () => {
   test("returns 5:00 when input is 300", () => {
@@ -58,5 +58,27 @@ describe("formatDuration", () => {
 
   test("returns null for negative input value", () => {
     expect(formatDuration(-67)).toBe(null);
+  });
+});
+
+describe("formatDistance", () => {
+  test("formats distance for 0 meters", () => {
+    expect(formatDistance(0)).toBe("0,0");
+  });
+
+  test("formats distance for less than 1000 meters", () => {
+    expect(formatDistance(720)).toBe("0,7");
+  });
+
+  test("formats distance for 4 digits meters", () => {
+    expect(formatDistance(1234)).toBe("1,2");
+  });
+
+  test("formats distance for 5 digits meters", () => {
+    expect(formatDistance(21097)).toBe("21,1");
+  });
+
+  test("formats distance for rounded value", () => {
+    expect(formatDistance(999)).toBe("1,0");
   });
 });
