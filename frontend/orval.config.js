@@ -7,6 +7,13 @@ export default defineConfig({
       client: "zod",
       mode: "single",
       target: "./src/api/contract.gen.ts",
+      override: {
+        zod: {
+          dateTimeOptions: {
+            local: true,
+          },
+        },
+      },
     },
   },
 });

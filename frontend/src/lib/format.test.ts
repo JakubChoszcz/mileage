@@ -1,5 +1,10 @@
 import { describe, expect, test } from "vitest";
-import { formatDistance, formatDuration, formatPace } from "./format";
+import {
+  formatDate,
+  formatDistance,
+  formatDuration,
+  formatPace,
+} from "./format";
 
 describe("formatPace", () => {
   test("returns 5:00 when input is 300", () => {
@@ -80,5 +85,19 @@ describe("formatDistance", () => {
 
   test("formats distance for rounded value", () => {
     expect(formatDistance(999)).toBe("1,0");
+  });
+});
+
+describe("formatDate", () => {
+  test(`"formats YYYY-MM-DD into DD.MM.YYYY"`, () => {
+    expect(formatDate("2026-10-25")).toBe("25.10.2026");
+  });
+
+  test("formats full Date-Time into DD.MM.YYYY", () => {
+    expect(
+      formatDate(
+        "Sun Oct 25 2026 22:07:37 GMT+0100 (Central European Standard Time)",
+      ),
+    ).toBe("25.10.2026");
   });
 });
