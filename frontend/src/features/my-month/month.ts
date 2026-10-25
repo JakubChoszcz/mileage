@@ -3,8 +3,6 @@ import customParseFormat from "dayjs/plugin/customParseFormat.js";
 
 dayjs.extend(customParseFormat);
 
-dayjs;
-
 // RRRR-MM date format
 export function getMonthRange(month: string): {
   from: string;

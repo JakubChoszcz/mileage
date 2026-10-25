@@ -15,7 +15,7 @@ export const RunSchema = z
     id: z.string().min(1).openapi({
       example: "2",
     }),
-    startedAt: z.iso.datetime().openapi({
+    startedAt: z.iso.datetime({ local: true }).openapi({
       example: "2026-10-13T07:10:00",
     }),
     distanceMeters: z.number().nonnegative().openapi({

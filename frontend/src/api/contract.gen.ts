@@ -24,7 +24,7 @@ export const getRunsResponseAvgHeartRateMin = 0;
 
 export const GetRunsResponseItem = zod.object({
   "id": zod.string().min(1),
-  "startedAt": zod.iso.datetime({"offset":true}),
+  "startedAt": zod.iso.datetime({"local":true}),
   "distanceMeters": zod.number().min(getRunsResponseDistanceMetersMin),
   "durationSeconds": zod.number().min(getRunsResponseDurationSecondsMin),
   "elevationGainMeters": zod.number().min(getRunsResponseElevationGainMetersMin).nullable(),
@@ -52,7 +52,7 @@ export const getRunsIdResponseAvgHeartRateMin = 0;
 
 export const GetRunsIdResponse = zod.object({
   "id": zod.string().min(1),
-  "startedAt": zod.iso.datetime({"offset":true}),
+  "startedAt": zod.iso.datetime({"local":true}),
   "distanceMeters": zod.number().min(getRunsIdResponseDistanceMetersMin),
   "durationSeconds": zod.number().min(getRunsIdResponseDurationSecondsMin),
   "elevationGainMeters": zod.number().min(getRunsIdResponseElevationGainMetersMin).nullable(),
