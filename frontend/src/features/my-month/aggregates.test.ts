@@ -1,5 +1,10 @@
 import { describe, expect, test } from "vitest";
-import { getAveragePace, getLongestRun, getTotalDistance } from "./aggregates";
+import {
+  getAveragePace,
+  getLongestRun,
+  getPace,
+  getTotalDistance,
+} from "./aggregates";
 
 describe("getAveragePace", () => {
   test("returns total average pace from runs", () =>
@@ -53,6 +58,17 @@ describe("getAveragePace", () => {
       ]),
     ).toBe(null));
 });
+
+// describe("getPace", () => {
+//   test("", () => {
+//     expect(
+//       getPace({
+//         distanceMeters: 20,
+//         durationSeconds: 30,
+//       }),
+//     ).toBe(30);
+//   });
+// });
 
 describe("getTotalDistance", () => {
   test("returns 0 when input array is empty", () => {

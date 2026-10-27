@@ -3,6 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { getMonthRange } from "./month";
 import { getAveragePace, getLongestRun, getTotalDistance } from "./aggregates";
 import MonthSummaryTiles from "./MonthSummaryTiles";
+import RunsTable from "./RunsTable";
 
 type Props = {
   month: string;
@@ -20,11 +21,14 @@ export default function MyMonthPage({ month }: Props) {
   const longestRun = getLongestRun(data);
 
   return (
-    <MonthSummaryTiles
-      distance={distance}
-      runsCount={runsCount}
-      avgPace={avgPace}
-      longestRun={longestRun}
-    />
+    <div>
+      <MonthSummaryTiles
+        distance={distance}
+        runsCount={runsCount}
+        avgPace={avgPace}
+        longestRun={longestRun}
+      />
+      <RunsTable runs={data} />
+    </div>
   );
 }
