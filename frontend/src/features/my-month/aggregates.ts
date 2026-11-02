@@ -25,7 +25,9 @@ export function getPace({
 }: {
   distanceMeters: number;
   durationSeconds: number;
-}): number {
+}): number | null {
+  if (distanceMeters <= 0) return null;
+
   return durationSeconds / (distanceMeters / 1000);
 }
 

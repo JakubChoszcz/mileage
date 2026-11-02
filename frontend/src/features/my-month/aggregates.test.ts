@@ -59,16 +59,24 @@ describe("getAveragePace", () => {
     ).toBe(null));
 });
 
-// describe("getPace", () => {
-//   test("", () => {
-//     expect(
-//       getPace({
-//         distanceMeters: 20,
-//         durationSeconds: 30,
-//       }),
-//     ).toBe(30);
-//   });
-// });
+describe("getPace", () => {
+  test("returns null when distanceMeters is 0", () => {
+    expect(
+      getPace({
+        distanceMeters: 0,
+        durationSeconds: 30,
+      }),
+    ).toBe(30);
+  });
+  test("returns calculated pace for real data", () => {
+    expect(
+      getPace({
+        distanceMeters: 1000,
+        durationSeconds: 270,
+      }),
+    ).toBe(30);
+  });
+});
 
 describe("getTotalDistance", () => {
   test("returns 0 when input array is empty", () => {
