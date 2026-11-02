@@ -19,6 +19,18 @@ export function getAveragePace(
   return durationSeconds / (distanceMeters / 1000);
 }
 
+export function getPace({
+  distanceMeters,
+  durationSeconds,
+}: {
+  distanceMeters: number;
+  durationSeconds: number;
+}): number | null {
+  if (distanceMeters <= 0) return null;
+
+  return durationSeconds / (distanceMeters / 1000);
+}
+
 export function getTotalDistance(
   runs: {
     distanceMeters: number;
