@@ -4,12 +4,14 @@ import { getMonthRange } from "./month";
 import { getAveragePace, getLongestRun, getTotalDistance } from "./aggregates";
 import MonthSummaryTiles from "./MonthSummaryTiles";
 import RunsTable from "./RunsTable";
+import MonthSwitcher from "./MonthSwitcher";
 
 type Props = {
   month: string;
+  currentMonth: string;
 };
 
-export default function MyMonthPage({ month }: Props) {
+export default function MyMonthPage({ month, currentMonth }: Props) {
   const { from, to } = getMonthRange(month);
   const { data } = useQuery(runsQueryOptions({ from, to }));
 
@@ -28,7 +30,8 @@ export default function MyMonthPage({ month }: Props) {
         avgPace={avgPace}
         longestRun={longestRun}
       />
-      <RunsTable runs={data} />
+      {data.length > 0 && <RunsTable runs={data} />}
+      <MonthSwitcher month={from} currentMonth={currentMonth} />
     </div>
   );
 }

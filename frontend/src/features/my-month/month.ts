@@ -30,3 +30,11 @@ export function sanitizeMonth({
 
   return input;
 }
+
+export function getPreviousMonth(month: string): string {
+  return dayjs(month).subtract(1, "month").format("YYYY-MM");
+}
+
+export function getNextMonth(month: string): string {
+  return dayjs(month).add(1, "month").format("YYYY-MM");
+}

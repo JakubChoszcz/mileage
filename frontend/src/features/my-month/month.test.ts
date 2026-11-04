@@ -1,5 +1,10 @@
 import { describe, expect, test } from "vitest";
-import { getMonthRange, sanitizeMonth } from "./month";
+import {
+  getMonthRange,
+  getNextMonth,
+  getPreviousMonth,
+  sanitizeMonth,
+} from "./month";
 
 describe("getMonthRange", () => {
   test("get range month for october", () => {
@@ -69,4 +74,24 @@ describe("sanitizeMonth", () => {
       );
     },
   );
+});
+
+describe("getPreviousMonth", () => {
+  test("returns previous month for a date in the middle of a year", () => {
+    expect(getPreviousMonth("2026-10")).toBe("2026-09");
+  });
+
+  test("returns previous month for a date crosses the year boundary backwards", () => {
+    expect(getPreviousMonth("2026-01")).toBe("2025-12");
+  });
+});
+
+describe("getNextMonth", () => {
+  test("returns next month for a date in the middle of a year", () => {
+    expect(getNextMonth("2026-10")).toBe("2026-11");
+  });
+
+  test("returns next month for a date crosses the year boundary forwards", () => {
+    expect(getNextMonth("2026-12")).toBe("2027-01");
+  });
 });
