@@ -26,7 +26,7 @@ export const Route = createFileRoute("/miesiac")({
         replace: true,
       });
 
-    return { month };
+    return { month, currentMonth };
   },
   component: () => {
     return <MiesiacRoute />;
@@ -34,7 +34,7 @@ export const Route = createFileRoute("/miesiac")({
 });
 
 function MiesiacRoute() {
-  const { month } = Route.useRouteContext();
+  const { month, currentMonth } = Route.useRouteContext();
 
-  return <MyMonthPage month={month} />;
+  return <MyMonthPage month={month} currentMonth={currentMonth} />;
 }
